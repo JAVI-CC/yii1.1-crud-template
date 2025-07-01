@@ -1,0 +1,81 @@
+2025/07/01 10:53:50 [error] [exception.CDbException] CDbException: Adding a foreign key constraint to an existing table is not supported by SQLite. in /var/www/html/framework/db/schema/sqlite/CSqliteSchema.php:266
+Stack trace:
+#0 /var/www/html/framework/db/CDbCommand.php(1463): CSqliteSchema->addForeignKey('fk_product', 'product_categor...', 'product_id', 'products', 'id', 'CASCADE', 'CASCADE')
+#1 /var/www/html/framework/db/CDbMigration.php(366): CDbCommand->addForeignKey('fk_product', 'product_categor...', 'product_id', 'products', 'id', 'CASCADE', 'CASCADE')
+#2 /var/www/html/prueba_one/protected/migrations/m250701_104500_create_product_categories_table.php(15): CDbMigration->addForeignKey('fk_product', 'product_categor...', 'product_id', 'products', 'id', 'CASCADE', 'CASCADE')
+#3 /var/www/html/framework/cli/commands/MigrateCommand.php(415): m250701_104500_create_product_categories_table->up()
+#4 /var/www/html/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m250701_104500_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/html/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/html/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/html/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/html/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#10 /var/www/html/framework/yiic.php(33): CApplication->run()
+#11 /var/www/html/prueba_one/protected/yiic.php(7): require_once('/var/www/html/f...')
+#12 /var/www/html/prueba_one/protected/yiic(4): require_once('/var/www/html/p...')
+#13 {main}
+---
+2025/07/01 11:17:45 [error] [php] require_once(/var/www/html/prueba_one/protected/migrations/m250701_104500_create_product_categories_table.php): Failed to open stream: No such file or directory (/var/www/html/framework/cli/commands/MigrateCommand.php:458)
+Stack trace:
+#0 /var/www/html/framework/cli/commands/MigrateCommand.php(458): require_once()
+#1 /var/www/html/framework/cli/commands/MigrateCommand.php(439): MigrateCommand->instantiateMigration()
+#2 /var/www/html/framework/cli/commands/MigrateCommand.php(145): MigrateCommand->migrateDown()
+#3 unknown(0): MigrateCommand->actionDown()
+#4 /var/www/html/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs()
+#5 /var/www/html/framework/console/CConsoleCommandRunner.php(71): MigrateCommand->run()
+#6 /var/www/html/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#7 /var/www/html/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#8 /var/www/html/framework/yiic.php(33): CConsoleApplication->run()
+#9 /var/www/html/prueba_one/protected/yiic.php(7): require_once()
+#10 /var/www/html/prueba_one/protected/yiic(4): require_once()
+
+2025/07/01 11:18:48 [error] [php] require_once(/var/www/html/prueba_one/protected/migrations/m250701_104500_create_product_categories_table.php): Failed to open stream: No such file or directory (/var/www/html/framework/cli/commands/MigrateCommand.php:458)
+Stack trace:
+#0 /var/www/html/framework/cli/commands/MigrateCommand.php(458): require_once()
+#1 /var/www/html/framework/cli/commands/MigrateCommand.php(439): MigrateCommand->instantiateMigration()
+#2 /var/www/html/framework/cli/commands/MigrateCommand.php(145): MigrateCommand->migrateDown()
+#3 unknown(0): MigrateCommand->actionDown()
+#4 /var/www/html/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs()
+#5 /var/www/html/framework/console/CConsoleCommandRunner.php(71): MigrateCommand->run()
+#6 /var/www/html/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#7 /var/www/html/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#8 /var/www/html/framework/yiic.php(33): CConsoleApplication->run()
+#9 /var/www/html/prueba_one/protected/yiic.php(7): require_once()
+#10 /var/www/html/prueba_one/protected/yiic(4): require_once()
+
+2025/07/01 11:22:19 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'yii_app.products' doesn't exist. The SQL statement executed was: ALTER TABLE `products` DROP FOREIGN KEY `fk_product`.
+2025/07/01 11:22:20 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'yii_app.products' doesn't exist. The SQL statement executed was: ALTER TABLE `products` DROP FOREIGN KEY `fk_product` in /var/www/html/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/html/framework/db/CDbCommand.php(1475): CDbCommand->execute()
+#1 /var/www/html/framework/db/CDbMigration.php(379): CDbCommand->dropForeignKey('fk_product', 'products')
+#2 /var/www/html/prueba_one/protected/migrations/m250701_104500_create_product_categories_table.php(21): CDbMigration->dropForeignKey('fk_product', 'products')
+#3 /var/www/html/framework/cli/commands/MigrateCommand.php(440): m250701_104500_create_product_categories_table->down()
+#4 /var/www/html/framework/cli/commands/MigrateCommand.php(145): MigrateCommand->migrateDown('m250701_104500_...')
+#5 [internal function]: MigrateCommand->actionDown(Array)
+#6 /var/www/html/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/html/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/html/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/html/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#10 /var/www/html/framework/yiic.php(33): CApplication->run()
+#11 /var/www/html/prueba_one/protected/yiic.php(7): require_once('/var/www/html/f...')
+#12 /var/www/html/prueba_one/protected/yiic(4): require_once('/var/www/html/p...')
+#13 {main}
+---
+2025/07/01 11:23:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP FOREIGN KEY `fk_product`; check that it exists. The SQL statement executed was: ALTER TABLE `products` DROP FOREIGN KEY `fk_product`.
+2025/07/01 11:23:36 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP FOREIGN KEY `fk_product`; check that it exists. The SQL statement executed was: ALTER TABLE `products` DROP FOREIGN KEY `fk_product` in /var/www/html/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/html/framework/db/CDbCommand.php(1475): CDbCommand->execute()
+#1 /var/www/html/framework/db/CDbMigration.php(379): CDbCommand->dropForeignKey('fk_product', 'products')
+#2 /var/www/html/prueba_one/protected/migrations/m250701_104500_create_product_categories_table.php(21): CDbMigration->dropForeignKey('fk_product', 'products')
+#3 /var/www/html/framework/cli/commands/MigrateCommand.php(440): m250701_104500_create_product_categories_table->down()
+#4 /var/www/html/framework/cli/commands/MigrateCommand.php(145): MigrateCommand->migrateDown('m250701_104500_...')
+#5 [internal function]: MigrateCommand->actionDown(Array)
+#6 /var/www/html/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/html/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/html/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/html/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#10 /var/www/html/framework/yiic.php(33): CApplication->run()
+#11 /var/www/html/prueba_one/protected/yiic.php(7): require_once('/var/www/html/f...')
+#12 /var/www/html/prueba_one/protected/yiic(4): require_once('/var/www/html/p...')
+#13 {main}
+---

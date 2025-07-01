@@ -63,8 +63,8 @@ La arquitectura que utiliza es MVC:
 ### Comandos para crear una nueva webapp
 
 <pre><code>docker compose exec php /bin/sh</code></pre>
-<pre><code>cd Framework</code></pre>
-<pre><code>chmod -R + x yiic</code></pre>
+<pre><code>cd framework</code></pre>
+<pre><code>chmod -R +x yiic</code></pre>
 <pre><code>./yiic webapp ../hello_world</code></pre>
 
 Url de la aplicacción:
