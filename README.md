@@ -148,3 +148,23 @@ foreach($users as $user) {
   CVarDumper::dump($user->getAttributes(), 1, true);
   die();
 }</code></pre>
+
+### Filtrar multiples condiciones
+Se utiliza params y % para evitar inyecciones SQL.
+
+<pre><code>$criteria = new CDbCriteria();
+
+$product_name = 'Example Product';  
+
+// $criteria->addCondition("name = :name AND price < :price");
+$criteria->addCondition("name LIKE :name");
+$criteria->addCondition("price > :price");
+
+$criteria->params = array(
+    ':name' => "%$product_name%",
+    ':price' => 100,
+);
+
+$products = Product::model()->findAll($criteria);
+</code></pre>
+

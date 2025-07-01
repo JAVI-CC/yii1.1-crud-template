@@ -19,7 +19,7 @@ class ProductController extends Controller
 	public function actionCreate()
 	{
 		$product = new Product();
-		
+
 		$categories = CHtml::listData(Category::model()->findAll(), 'id', 'name');
 
 		if (isset($_POST['Product'])) {
@@ -60,5 +60,31 @@ class ProductController extends Controller
 		$product->delete();
 
 		$this->redirect(array('index'));
+	}
+
+	public function actionListPagination()
+	{
+		// Crea un objeto CDbCriteria para las condiciones de búsqueda (si las necesitas)
+		$criteria = new CDbCriteria();
+
+		// Opcionalmente puedes añadir filtros (por ejemplo, filtrar por nombre)
+		// if (isset($_GET['Product']['name'])) {
+		//     $criteria->compare('name', $_GET['Product']['name'], true);
+		// }
+
+		// Crear un objeto de paginación
+		$pages = new CPagination(Product::model()->count($criteria)); // Cuenta los productos que cumplen con el criterio
+		$pages->pageSize = 10;  // Número de productos por página
+
+		// Crear el CActiveDataProvider
+		$dataProvider = new CActiveDataProvider('Product', array(
+			'criteria' => $criteria,
+			'pagination' => $pages,  // Asocia la paginación al DataProvider
+		));
+
+		// Renderizar la vista con el DataProvider
+		$this->render('list_pagination', array(
+			'dataProvider' => $dataProvider,
+		));
 	}
 }

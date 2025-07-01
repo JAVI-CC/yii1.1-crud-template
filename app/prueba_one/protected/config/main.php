@@ -49,6 +49,7 @@ return array(
 				'product/update/<id>' => 'product/update',
 				'product/delete/<id>' => 'product/delete',
 				'product' => 'product/index',
+				'product/listPagination' => 'product/listPagination',
 			),
 		),
 
