@@ -124,6 +124,14 @@ Para crear una nueva migración:
 
 <br>
 
+### Components
+Para añadir un nuevo componente:
+<pre><code>'modelLoader' => array(
+'class' => 'application.components.ModelLoader',
+),</code></pre>
+
+<br>
+
 ### MODEL
 
 Devolver una instancia del modelo de base de datos.
